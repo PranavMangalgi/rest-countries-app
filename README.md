@@ -1,5 +1,7 @@
 # Country Information App
 
+![chrome-capture-2023-11-6](https://github.com/PranavMangalgi/rest-countries-app/assets/73255252/8851b71e-27e6-44b6-b0f0-e85647641a1f)
+
 ## Overview
 This React application provides information about countries, allowing users to explore details such as population, region, languages, and more.
 
