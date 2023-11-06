@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+  --dark-mode-elements: hsl(209, 23%, 22%);
+  --darkMode-bg: hsl(207, 26%, 17%);
+  --lightmode-text: hsl(200, 15%, 8%);
+  --dark-gray-lightmode-inp: hsl(0, 0%, 52%);
+  --lightmode-bg: hsl(0, 0%, 95%);
+  --dakrmode-text-lightmode-elements: hsl(0, 0%, 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin flexContainer($direction: row, $justify: center, $items: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $items;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--lightmode-bg);
+
+  &.darkMode {
+    background-color: var(--darkMode-bg);
+  }
+}
+
+.flagButton {
+  padding: 1.25rem;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .button {
+    @include flexContainer;
+    padding: 0.5rem 1rem;
+    gap: 5px;
+    background-color: hsl(0, 0%, 100%);
+    border: none;
+    margin-top: 1rem;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+
+    &.darkMode {
+      background-color: var(--dark-mode-elements);
+      color: #fff;
+    }
+  }
+
+  .flagButton button > div:last-of-type {
+    padding-bottom: 2px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+}
+
+.flag > img {
+  width: 100%;
+  height: 200px;
+}
+
+.content {
+  padding: 1.25rem;
+  @include flexContainer($direction: column, $items: flex-start);
+  gap: 1rem;
+
+  h4 {
+    font-size: 2rem;
+
+    &.darkModeFont {
+      color: #fff;
+    }
+  }
+
+  .countryInfo {
+    @include flexContainer($direction: column, $items: flex-start);
+    gap: 1rem;
+
+    .firstPart {
+      @include flexContainer($direction: column, $items: flex-start);
+      gap: 0.45rem;
+    }
+
+    .secondPart {
+      @include flexContainer($direction: column, $items: flex-start);
+      gap: 0.4rem;
+    }
+  }
+}
+
+.heading {
+  font-weight: 600;
+  margin-right: 8px;
+
+  &.darkModeFont {
+    color: #fff;
+  }
+}
+
+.borderCountries {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  > .heading + div {
+    @include flexContainer($justify: flex-start);
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+.borderCountry {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.65rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+
+  &.darkMode {
+    color: var(--lightmode-bg);
+    background-color: var(--dark-mode-elements);
+  }
+}
+
+.darkMode {
+  background-color: var(--darkMode-bg);
+}
+
+.darkModeFont2 {
+  color: var(--lightmode-bg);
+}
+
+@media (min-width: 768px) {
+  .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: none;
+  }
+
+  .flagButton {
+    width: 50vw;
+    margin-bottom: 10%;
+    justify-content: flex-start;
+    gap: 4rem 0;
+  }
+
+  .flag {
+    width: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .content {
+    width: 40vw;
+    align-self: baseline;
+    padding-top: 130px;
+
+    .countryInfo {
+      flex-direction: row;
+      gap: 100px;
+
+      .firstPart {
+        gap: 1rem;
+      }
+
+      .secondPart {
+        gap: 1rem;
+      }
+    }
+  }
+
+  .borderCountries {
+    margin-top: 1.25rem;
+  }
+}
